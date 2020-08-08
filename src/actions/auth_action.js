@@ -8,6 +8,7 @@ import {
 } from './type'
 import {authenticate} from "../auth/helper"
 
+
 export const changeAuthField=({prop,value})=>{
   return{
     type:AUTH_FORM_FIELD,
@@ -52,14 +53,14 @@ export const signupUser=(email,password,firstName,lastName,cPassword,rangeEmploy
       dispatch({type:AUTH_LOADING});
      console.log("url",process.env.REACT_APP_API_URL)
      let {data}=await axios.post(`${process.env.REACT_APP_API_URL}signup`,{
-       email,password,first_name:firstName,last_name:lastName
+       email,password,firstName,lastName,rangeEmployee,companyName
      })
      console.log(data)
      authenticate(data)
      dispatch({type:SIGNUP_SUCCESS,payload:data});
     }
   }catch (err){
-    console.log(err.response.data.error)
+    console.log(err.response)
     dispatch({type:AUTH_ERROR,payload:err.response.data.error})
   }
   }

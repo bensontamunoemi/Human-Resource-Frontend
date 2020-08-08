@@ -36,6 +36,7 @@ class Signup extends Component {
         )
     }
     return(
+
       <div class="vertical-align-wrap">
 			<div class="vertical-align-middle auth-main">
 				<div class="auth-box">
@@ -47,6 +48,7 @@ class Signup extends Component {
                             <p class="lead">Create Account</p>
                         </div>
                         <div class="body">
+                          {error &&(<div className="alert alert-danger">{error}</div>)}
                             <form onSubmit={this.handleSubmit} className="form-auth-small">
                             <div className="form-group">
                                 <label for="signin-firstName" className="control-label ">Your First Name</label>
